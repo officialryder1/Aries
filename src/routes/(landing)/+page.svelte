@@ -1,5 +1,5 @@
 <script>
-   let brandName = "Aries Cards"
+   let brandName = "Aries Gaming"
    let isOpen = false;
 
 </script>
