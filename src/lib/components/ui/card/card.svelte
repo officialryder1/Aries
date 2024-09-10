@@ -15,7 +15,7 @@
     export let mana_point
     export let id
   
-    
+   
     const getImageUrl = (path) => `${PUBLIC_IMAGE_URL}${path}`
 </script>
 

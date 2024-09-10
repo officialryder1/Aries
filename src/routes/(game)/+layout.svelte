@@ -26,7 +26,7 @@
     let mobile_core_links = [
         {href: '/', name: 'Note'},
         {href: '/game', name: 'Game'},
-        {href: '/api/logout', name: 'Create profile'},
+        {href: '/create_avatar', name: 'Create profile'},
 
     ]
     

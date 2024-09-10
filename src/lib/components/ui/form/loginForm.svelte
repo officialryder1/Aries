@@ -38,7 +38,7 @@
             class="w-full bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600 transition-colors duration-300 bg-">
             Submit</button>
     </div>
-
+    <p class="text-gray-900 p-2 text-center font-medium">Don't have an account? <a href="/auth/signup" class="text-red-600 underline">signup today</a></p>
     <!-- Display any form validation message passed from the server -->
     {#if form?.error}
      <p class="text-red-500 mt-5 font-bold">{form.error}</p>

@@ -3,9 +3,9 @@
     export let description;
     export let image
     export let second_image
-    import {PUBLIC_URL} from "$env/static/public"
+    import {PUBLIC_IMAGE_URL} from "$env/static/public"
 
-    const getImageUrl = (path) => `${PUBLIC_URL}${path}`
+    const getImageUrl = (path) => `${PUBLIC_IMAGE_URL}${path}`
     
 </script>
 

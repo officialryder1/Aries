@@ -1,5 +1,6 @@
 <script>
     import { accept, requestMatch } from '$lib/utils/game.js'
+    import { getRankAndCardPoint } from '$lib/utils/profile.js';
 	import { onMount } from 'svelte';
     import { PUBLIC_API_KEY } from '$env/static/public'
     import Pusher from 'pusher-js';
@@ -13,7 +14,8 @@
     $: availableMatch = availableMatch || []
 
 
-    onMount(() => {
+    onMount(async () => {
+        getRank= await getRankAndCardPoint(user)
         pusher = new Pusher(PUBLIC_API_KEY, {
             cluster: 'eu'
         })
@@ -68,6 +70,7 @@
                 console.log(url)
             }
         })
+        
     })
 
     // Create match
@@ -78,6 +81,11 @@
         showMessage = true
         console.log(message)
     }
+
+    let getRank = []
+
+    console.log(getRank)
+
 </script>
 
 <div class=" h-full flex justify-center items-center flex-col">
@@ -95,8 +103,8 @@
                 
                 <div class="bg-white w-80 shadow-lg rounded-lg  text-gray-600 text-center font-bold p-10 mt-5">
                     <h4>Match request by</h4>
-                    <p>{requester_name}</p>
-                    <p>{id}</p>
+                    <p>player: {requester_name}</p>
+                    <p>rank: {getRank.rank}</p>
                     
                     <button class="bg-red-600 w-50 p-2 rounded-lg shadow-orange-200 shadow-lg hover:bg-red-500 transition-colors duration-300 text-white" on:click={() => acceptMatch(id)}>accept</button>
                 </div>

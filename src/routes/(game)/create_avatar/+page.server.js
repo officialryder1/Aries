@@ -22,13 +22,14 @@ export async function load({fetch, locals, cookies}) {
         const response = await fetch(`${URL}/api/cards`)
 
         if(res.status === 401 && response.status === 401){
-            
             throw redirect(302, '/api/logout')
         }
 
-        if(!res.ok && !response.ok){
-            throw new Error('Failed to fetch characters')
-            
+        if (!res.ok) {
+            throw new Error('Failed to fetch characters');
+        }
+        if (!response.ok) {
+            throw new Error('Failed to fetch cards');
         }
 
         const characters = await res.json()
