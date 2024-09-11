@@ -1,7 +1,7 @@
 <script>
     import { getRarity, getType } from '$lib/utils/rarity'
 
-    import { PUBLIC_IMAGE_URL } from '$env/static/public'
+    // import { PUBLIC_IMAGE_URL } from '$env/static/public'
 
     export let name
     export let description
@@ -16,14 +16,14 @@
     export let id
   
    
-    const getImageUrl = (path) => `${PUBLIC_IMAGE_URL}${path}`
+    // const getImageUrl = (path) => `${PUBLIC_IMAGE_URL}${path}`
 </script>
 
 <div class="flex justify-center p-4">
     <p hidden>{id}</p>
     <div class="w-80 h-99 bg-white shadow-lg rounded-lg overflow-hidden">
        <div class="flex justify-center mt-4">
-        <img src={getImageUrl(image)} alt={name} class="w-24 h-24 object-cover rounded-full border-2 border-grey-300">
+        <img src={image} alt={name} class="w-24 h-24 object-cover rounded-full border-2 border-grey-300">
        </div>
         <div class="p-4 text-center">
             <h2 class="text-gray-900 font-bold text-xl mb-2">{name}</h2>

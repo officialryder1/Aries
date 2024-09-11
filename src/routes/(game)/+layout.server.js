@@ -18,16 +18,24 @@ export async function load({fetch, locals, cookies}) {
         throw redirect(302, '/api/logout')
     }
 
-    const res = await fetch(`${URL}/api/get_player?user_id=${user_id}`)
-    const player = await res.json()
+    try{
+        const res = await fetch(`${URL}/api/get_player?user_id=${user_id}`)
+        
 
-    if(!res){
-        return fail(res.status, {
-            error: player.detail || "Failed to get player detail"
-        })
+        if(!res){
+            const errorData = await res.json()
+            return fail(res.status, {
+                error: errorData.detail || "Failed to get player detail"
+            })
+        }
+        const player = await res.json()
+        return {
+            user: locals.user,
+            player
+        };
+    }catch (error) {
+        return fail(500, {
+            error: "Server error: Failed to fetch player details"
+        });
     }
-    return {
-        user: locals.user,
-        player
-    };
 }

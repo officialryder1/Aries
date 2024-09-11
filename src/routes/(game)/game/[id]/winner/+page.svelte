@@ -2,7 +2,7 @@
     import {goto} from '$app/navigation'
     import { onMount, onDestroy } from 'svelte'
     import { pickCard } from '$lib/utils/game';
-    import {PUBLIC_IMAGE_URL} from '$env/static/public'
+    // import {PUBLIC_IMAGE_URL} from '$env/static/public'
     import { getRarity, getType } from '$lib/utils/rarity.js';
     import { fetchCardDetail } from '$lib/utils/profile.js';
 
@@ -25,7 +25,7 @@
     console.log(match)
 
     const card = data?.result.winning_card[0]
-    const getImageUrl = (path) => `${PUBLIC_IMAGE_URL}${path}`
+    // const getImageUrl = (path) => `${PUBLIC_IMAGE_URL}${path}`
     console.log(card)
     onDestroy(() => {
         loserCards = []
@@ -44,7 +44,7 @@
         <div class="bg-gray-800 rounded-lg p-6 max-w-sm">
             <h2 class="text-xl font-semibold text-center mb-4">Winning Card</h2>
             <div class="h-48 w-full mb-4">
-                <img src={getImageUrl(card.image)} alt={data?.result.winning_card[0].name} class="h-full w-full object-cover rounded-lg" />
+                <img src={card.image} alt={data?.result.winning_card[0].name} class="h-full w-full object-cover rounded-lg" />
             </div>
             <p class="text-center text-lg font-bold">{data?.result.winning_card[0].name} - {getRarity(card.rarity)} rank</p>
             <p class="text-center text-gray-300 mb-4">{card.description}</p>
@@ -66,7 +66,7 @@
         {#each loserCards as card}
             <div class="flex-shrink-0 bg-gray-800 h-80 w-48 rounded-lg p-3 flex flex-col items-center">
                 <div class="w-full h-32 mb-4">
-                    <img src={getImageUrl(card.image)} alt={card.name} class="h-full w-full object-cover rounded-md" />
+                    <img src={card.image} alt={card.name} class="h-full w-full object-cover rounded-md" />
                 </div>
                 <p class="text-center text-sm font-bold">{card.name}</p>
                 <div class="flex justify-between mt-2 w-full">
@@ -94,7 +94,7 @@
         <div class="bg-gray-800 rounded-lg p-6 max-w-sm">
             <h2 class="text-xl font-semibold text-center mb-4">Winning Card</h2>
             <div class="h-48 w-full mb-4">
-                <img src={getImageUrl(card.image)} alt={data?.result.winning_card[0].name} class="h-full w-full object-cover rounded-lg" />
+                <img src={card.image} alt={data?.result.winning_card[0].name} class="h-full w-full object-cover rounded-lg" />
             </div>
             <p class="text-center text-lg font-bold">{data?.result.winning_card[0].name} - {getRarity(card.rarity)} rank</p>
             <p class="text-center text-gray-300 mb-4">{card.description}</p>

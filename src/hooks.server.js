@@ -1,6 +1,7 @@
 import jwt from 'jsonwebtoken'
 import { isTokenExpired } from '$lib/utils/tokenUtil'
 import { sequence } from '@sveltejs/kit/hooks'
+import { URL} from '$env/static/private'
 
 
 
@@ -22,7 +23,7 @@ const firstHandle = async({event, resolve}) => {
             const user_id = user.user_id
             
             // fetch the data from backend
-            const res = await fetch(`http://127.0.0.1:8000/api/user/${user_id}`)
+            const res = await fetch(`${URL}/api/user/${user_id}`)
 
             if(res.ok){
                 const userDetails = await res.json()
@@ -37,7 +38,7 @@ const firstHandle = async({event, resolve}) => {
     }
 
     // if(isTokenExpired(accessToken)){
-    //     const res = await fetch(`http://127.0.0.1:8000/api/token/refresh/`, {
+    //     const res = await fetch(`${URL}/api/token/refresh/`, {
     //         method: 'POST',
     //         headers: {
     //             'Content-Type': 'application/json'
@@ -80,7 +81,7 @@ const secondHandle = async({event, resolve}) =>{
         if(refreshToken){
             const accessToken = event.cookies.get('access_token')
             if(isTokenExpired(accessToken)){
-                const res = await fetch(`http://127.0.0.1:8000/api/token/refresh/`, {
+                const res = await fetch(`${URL}/api/token/refresh/`, {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'

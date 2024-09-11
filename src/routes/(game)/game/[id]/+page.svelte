@@ -6,7 +6,7 @@
     import { goto } from '$app/navigation'
     import { PUBLIC_API_KEY } from '$env/static/public'
     import { PUBLIC_URL } from '$env/static/public'
-    import { PUBLIC_IMAGE_URL } from '$env/static/public'
+    // import { PUBLIC_IMAGE_URL } from '$env/static/public'
     import { getRarity, getType } from '$lib/utils/rarity'
 
     export let data;
@@ -203,7 +203,7 @@
     //     pusher.unsubscribe('match-channel')
     // })
     
-    const getImageUrl = (path) => `${PUBLIC_IMAGE_URL}${path}`
+    // const getImageUrl = (path) => `${PUBLIC_IMAGE_URL}${path}`
 
     // Dynamic Hp and Mp display
     let playerOneMaxHp = playerOneHealth ?? 100
@@ -306,7 +306,7 @@
             <div class="flex-shrink-0 bg-gray-800 h-64 w-48 rounded-lg p-4 flex flex-col items-center shadow-lg">
                 <!-- Card Image -->
                 <div class="w-full h-32 bg-gray-600 rounded-md mb-2 overflow-hidden">
-                    <img src={getImageUrl(playerOneCard.image)} alt={playerOneCard.name} class="object-cover h-full w-full" />
+                    <img src={playerOneCard.image} alt={playerOneCard.name} class="object-cover h-full w-full" />
                 </div>
 
                 <!-- Card Name -->
@@ -346,7 +346,7 @@
             <div class="flex-shrink-0 bg-gray-800 h-64 w-48 rounded-lg p-4 flex flex-col items-center shadow-lg">
                 <!-- Card Image -->
                 <div class="w-full h-32 bg-gray-600 rounded-md mb-2 overflow-hidden">
-                    <img src={getImageUrl(playerOneCard.image)} alt={playerTwoCard.name} class="object-cover h-full w-full" />
+                    <img src={playerOneCard.image} alt={playerTwoCard.name} class="object-cover h-full w-full" />
                 </div>
 
                 <!-- Card Name -->
@@ -389,7 +389,7 @@
             <div class="flex-shrink-0 bg-gray-800 h-64 w-48 rounded-lg p-4 flex flex-col items-center shadow-lg">
                 <!-- Card Image -->
                 <div class="w-full h-32 bg-gray-600 rounded-md mb-2 overflow-hidden">
-                    <img src={getImageUrl(card.image)} alt={card.name} class="object-cover h-full w-full" />
+                    <img src={card.image} alt={card.name} class="object-cover h-full w-full" />
                 </div>
 
                 <!-- Card Name -->

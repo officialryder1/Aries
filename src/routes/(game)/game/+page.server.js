@@ -1,4 +1,5 @@
 import { URL } from '$env/static/private'
+import { redirect } from '@sveltejs/kit'
 
 export async function load({fetch, locals}){
     const user_id = await locals.user.id
@@ -7,7 +8,9 @@ export async function load({fetch, locals}){
 
     
     if(!res.ok){
-        throw new Error('Failed to retrieve data')
+        throw redirect('302', '/create_avatar')
+        // throw new Error('Failed to retrieve data')
+
     }
 
     const match = await res.json()
